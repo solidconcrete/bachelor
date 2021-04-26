@@ -22,4 +22,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         List<Employee> employees = employeeRepository.findAll();
         return employees;
     }
+
+    @Override
+    public void upsertEmployee(Employee employee) {
+        employeeRepository.save(employee);
+    }
 }
