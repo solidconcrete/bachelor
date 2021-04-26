@@ -1,8 +1,8 @@
-package com.bachelor.bachelor.service.address.service.impl;
+package com.bachelor.bachelor.bl.address.service.impl;
 
 import com.bachelor.bachelor.model.address.Address;
-import com.bachelor.bachelor.service.address.repository.AddressRepository;
-import com.bachelor.bachelor.service.address.service.AddressService;
+import com.bachelor.bachelor.bl.address.repository.AddressRepository;
+import com.bachelor.bachelor.bl.address.service.AddressService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

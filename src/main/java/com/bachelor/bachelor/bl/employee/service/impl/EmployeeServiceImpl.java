@@ -1,11 +1,10 @@
-package com.bachelor.bachelor.service.employee.service.impl;
+package com.bachelor.bachelor.bl.employee.service.impl;
 
 import com.bachelor.bachelor.model.employee.Employee;
-import com.bachelor.bachelor.service.employee.repository.EmployeeRepository;
-import com.bachelor.bachelor.service.employee.service.EmployeeService;
+import com.bachelor.bachelor.bl.employee.repository.EmployeeRepository;
+import com.bachelor.bachelor.bl.employee.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

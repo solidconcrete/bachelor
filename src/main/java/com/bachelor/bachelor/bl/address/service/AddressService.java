@@ -1,4 +1,4 @@
-package com.bachelor.bachelor.service.address.service;
+package com.bachelor.bachelor.bl.address.service;
 
 import com.bachelor.bachelor.model.address.Address;
 

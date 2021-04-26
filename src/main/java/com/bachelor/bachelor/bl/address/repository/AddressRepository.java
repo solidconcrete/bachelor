@@ -1,4 +1,4 @@
-package com.bachelor.bachelor.service.address.repository;
+package com.bachelor.bachelor.bl.address.repository;
 
 import com.bachelor.bachelor.model.address.Address;
 import org.springframework.data.mongodb.repository.MongoRepository;

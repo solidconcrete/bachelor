@@ -1,4 +1,4 @@
-package com.bachelor.bachelor.service.employee.service;
+package com.bachelor.bachelor.bl.employee.service;
 
 import com.bachelor.bachelor.model.employee.Employee;
 

@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @ToString
@@ -17,8 +18,9 @@ public class Employee {
 
     @Id
     private String id;
-    @NotNull()
+    @NotEmpty(message = "employee name can not be empty")
     private String name;
+    @NotEmpty(message = "employee surname can not be empty")
     private String surname;
     @Field(name = "personal_id")
     private String personalId;

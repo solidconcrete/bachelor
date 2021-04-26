@@ -1,7 +1,7 @@
-package com.bachelor.bachelor.controller.Employee;
+package com.bachelor.bachelor.controller.employee;
 
 import com.bachelor.bachelor.model.employee.Employee;
-import com.bachelor.bachelor.service.employee.service.EmployeeService;
+import com.bachelor.bachelor.bl.employee.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -26,7 +27,7 @@ public class EmployeeController {
     }
 
     @PostMapping()
-    public void insertOrUpdateEmployee(@RequestBody Employee employee) {
+    public void insertOrUpdateEmployee(@RequestBody @Valid Employee employee) {
         employeeService.upsertEmployee(employee);
     }
 }
