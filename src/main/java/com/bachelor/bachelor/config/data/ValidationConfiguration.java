@@ -5,8 +5,14 @@
 //import org.springframework.data.mongodb.core.mapping.event.ValidatingMongoEventListener;
 //import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 //
+//import javax.validation.Validator;
+//
 //@Configuration
-//public class ValidationConfiguration {
+//public class ValidationConfiguration extends ValidatingMongoEventListener {
+//
+//    public ValidationConfiguration(Validator validator) {
+//        super(validator);
+//    }
 //
 //    @Bean
 //    public ValidatingMongoEventListener validatingMongoEventListener() {

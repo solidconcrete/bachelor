@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -24,7 +25,7 @@ public class AddressController {
     }
 
     @PostMapping
-    public void upsertAddress(@RequestBody Address address) {
+    public void upsertAddress(@RequestBody @Valid Address address) {
         addressService.upsertAddress(address);
     }
 }

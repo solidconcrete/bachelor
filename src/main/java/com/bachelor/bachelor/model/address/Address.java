@@ -7,6 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 
 @ToString
 @Getter
@@ -15,15 +17,20 @@ public class Address {
 
     @Id
     private String id;
-    @NotEmpty(message = "country can not be empty")
+    @NotNull
+    @NotEmpty
     private String country;
-    @NotEmpty(message = "municipality can not be empty")
+    @NotNull
+    @NotEmpty
     private String municipality;
-    @NotEmpty(message = "settlement can not be empty")
+    @NotNull
+    @NotEmpty
     private String settlement;
-    @NotEmpty(message = "street can not be empty")
+    @NotNull
+    @NotEmpty
     private String street;
-    @NotEmpty(message = "house number can not be empty")
+    @NotNull
+    @NotEmpty
     @Field(name = "house_number")
     private String houseNo;
 
