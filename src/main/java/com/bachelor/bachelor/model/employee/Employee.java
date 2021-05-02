@@ -1,14 +1,17 @@
 package com.bachelor.bachelor.model.employee;
 
+import com.bachelor.bachelor.model.position.Position;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 
 @ToString
@@ -29,6 +32,10 @@ public class Employee {
     @Field(name = "phone_number")
     private String phoneNumber;
     private String email;
-    @NotNull
     private boolean isActive = true;
+
+    @DBRef
+    @NotNull
+    @NotEmpty
+    private List<Position> positions;
 }
