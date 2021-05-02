@@ -1,5 +1,6 @@
 package com.bachelor.bachelor.controller.shift;
 
+import com.bachelor.bachelor.bl.shift.service.ShiftService;
 import com.bachelor.bachelor.model.shift.Shift;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,14 +20,16 @@ import java.util.List;
 @RequestMapping("/shifts")
 public class ShiftController {
 
+    private final ShiftService shiftService;
+
     @GetMapping
     public List<Shift> findShifts() {
-        return null;
+        return shiftService.findAllShifts();
     }
 
     @PostMapping
     public void upsertShift(@RequestBody @Valid Shift shift) {
-        log.info(shift.toString());
+        shiftService.upsertShift(shift);
     }
 
 }

@@ -35,7 +35,6 @@ public class Shift {
     @DBRef
     private Cabinet cabinet;
     @DBRef
-    @NotNull
     private Position position;
 
 }

@@ -6,6 +6,7 @@ import com.bachelor.bachelor.model.employee.Employee;
 import com.bachelor.bachelor.model.employee.EmployeeSearch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.MongoRegexCreator;
 import org.springframework.data.mongodb.core.query.Query;
@@ -29,12 +30,31 @@ public class EmployeeRepositoryImpl implements EmployeeRepositoryCustom {
     public List<Employee> searchEmployees(EmployeeSearch search) {
         final Query query = new Query();
         final List<Criteria> criteria = new ArrayList<>();
-        if (!search.getName().isEmpty()) {
-            criteria.add(Criteria.where("name").regex(Objects.requireNonNull(MongoRegexCreator.INSTANCE.toRegularExpression(
+        if (search.getName() != null && !search.getName().isEmpty()) {
+            criteria.add(Criteria.where("name").regex(MongoRegexCreator.INSTANCE.toRegularExpression(
                     search.getName(), MongoRegexCreator.MatchMode.LIKE
-            )), "i"));
+            ), "i"));
         }
-        query.addCriteria(criteria.get(0));
+
+        if (search.getSurname() != null && !search.getSurname().isEmpty()) {
+            criteria.add(Criteria.where("surname").regex(MongoRegexCreator.INSTANCE.toRegularExpression(
+                    search.getSurname(), MongoRegexCreator.MatchMode.LIKE
+            ), "i"));
+        }
+
+//        if (search.getPosition() != null) {
+//            criteria.add(Criteria.where("positions.position").is(search.getPosition()));
+//        }
+//        BasicQuery basicQuery = new BasicQuery().addCriteria(new Criteria("asd", "asd"));
+
+
+        query.addCriteria(Criteria.where("position.asdasd").is("SURGEON"));
+//        TODO: add criteria by postition
+
+
+        if (!criteria.isEmpty()) {
+            query.addCriteria(new Criteria().andOperator(criteria.toArray(new Criteria[criteria.size()])));
+        }
         return mongoTemplate.find(query, Employee.class);
     }
 
