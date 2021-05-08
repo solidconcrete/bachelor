@@ -1,5 +1,6 @@
 package com.bachelor.bachelor.controller.address;
 
+import com.bachelor.bachelor.TenantProvider;
 import com.bachelor.bachelor.bl.address.service.AddressService;
 import com.bachelor.bachelor.model.address.Address;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,7 @@ public class AddressController {
 
     @GetMapping
     public List<Address> findAllAddresses() {
+        TenantProvider.setCurrentDb("DB2");
         return addressService.findAllAddresses();
     }
 
