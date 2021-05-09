@@ -66,7 +66,6 @@ public class CachedMongoClients {
      * @return MongoDatabase
      */
     public MongoDatabase getMongoDatabaseForCurrentContext() {
-        tenantCache.
         return tenantCache.get(TenantProvider.getCurrentDb()).getClient().
                 getDatabase(tenantCache.get(TenantProvider.getCurrentDb()).getDatabase());
     }
