@@ -42,13 +42,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepositoryCustom {
             ), "i"));
         }
 
-//        if (search.getPosition() != null) {
-//            criteria.add(Criteria.where("positions.position").is(search.getPosition()));
-//        }
-//        BasicQuery basicQuery = new BasicQuery().addCriteria(new Criteria("asd", "asd"));
-
-
-        query.addCriteria(Criteria.where("position.asdasd").is("SURGEON"));
+//        query.addCriteria(Criteria.where("position.asdasd").is("SURGEON"));
 //        TODO: add criteria by postition
 
 

@@ -17,7 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http = http.cors().and().csrf().disable();
         http.authorizeRequests()
-                .antMatchers("/delete/**").hasAuthority("DELETE")
+//                .antMatchers("/delete/**").hasAuthority("DELETE")
 
             .anyRequest().authenticated();
 

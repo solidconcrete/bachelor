@@ -22,7 +22,6 @@ public class AddressController {
 
     @GetMapping
     public List<Address> findAllAddresses() {
-        TenantProvider.setCurrentDb("DB2");
         return addressService.findAllAddresses();
     }
 

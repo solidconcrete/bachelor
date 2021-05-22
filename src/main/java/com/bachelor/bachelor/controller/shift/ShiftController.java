@@ -1,5 +1,6 @@
 package com.bachelor.bachelor.controller.shift;
 
+import com.bachelor.bachelor.TenantProvider;
 import com.bachelor.bachelor.bl.shift.service.ShiftService;
 import com.bachelor.bachelor.model.shift.Shift;
 import lombok.RequiredArgsConstructor;

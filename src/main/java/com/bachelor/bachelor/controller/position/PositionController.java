@@ -1,5 +1,6 @@
 package com.bachelor.bachelor.controller.position;
 
+import com.bachelor.bachelor.TenantProvider;
 import com.bachelor.bachelor.bl.position.service.PositionService;
 import com.bachelor.bachelor.model.position.Position;
 import lombok.RequiredArgsConstructor;

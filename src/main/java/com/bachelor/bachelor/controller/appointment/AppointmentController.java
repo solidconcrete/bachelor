@@ -1,5 +1,6 @@
 package com.bachelor.bachelor.controller.appointment;
 
+import com.bachelor.bachelor.TenantProvider;
 import com.bachelor.bachelor.bl.appointment.service.AppointmentService;
 import com.bachelor.bachelor.model.appointment.Appointment;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,11 @@ public class AppointmentController {
     @PostMapping
     public void upsertAppointment(@RequestBody Appointment appointment) {
         appointmentService.upsertAppointment(appointment);
+    }
+
+    @PostMapping("/search")
+    public List<Appointment> findAppointments(@RequestBody Appointment appointment) {
+        return appointmentService.findAppointmentsBetween(appointment);
     }
 
 }

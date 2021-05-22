@@ -36,11 +36,11 @@ public class JwtParser {
 
     public List<? extends GrantedAuthority> getAuthoritiesFromToken(String token)  {
         Claims claims = getAllClaimsFromToken(token);
-        ArrayList<String> authorities = claims.get("authorities", ArrayList.class);
+//        ArrayList<String> authorities = claims.get("roles", ArrayList.class);
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-        for (String authority : authorities) {
-            grantedAuthorities.add(new SimpleGrantedAuthority(authority));
-        }
+//        for (String authority : authorities) {
+//            grantedAuthorities.add(new SimpleGrantedAuthority(authority));
+//        }
         return grantedAuthorities;
     }
 

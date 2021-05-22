@@ -1,6 +1,6 @@
 package com.bachelor.bachelor.model.Patient;
 
-import com.bachelor.bachelor.model.position.Position;
+import com.bachelor.bachelor.model.CustomUser.CustomUser;
 import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Getter
 @Document (collection = "patient")
@@ -28,5 +27,7 @@ public class Patient {
     @Field(name = "phone_number")
     private String phoneNumber;
     private String email;
-    private boolean isActive = true;
+
+    @DBRef
+    private CustomUser user;
 }

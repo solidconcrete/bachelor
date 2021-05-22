@@ -9,4 +9,5 @@ public class EmployeeSearch {
     private String name;
     private String surname;
     private Position position;
+    private Boolean doctor;
 }

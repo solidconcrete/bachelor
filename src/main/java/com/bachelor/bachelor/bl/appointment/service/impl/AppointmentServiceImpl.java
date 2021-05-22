@@ -6,6 +6,7 @@ import com.bachelor.bachelor.model.appointment.Appointment;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -23,6 +24,11 @@ public class AppointmentServiceImpl implements AppointmentService {
     @Override
     public void upsertAppointment(Appointment appointment) {
         appointmentRepository.save(appointment);
+    }
+
+    @Override
+    public List<Appointment> findAppointmentsBetween(Appointment appointment) {
+        return appointmentRepository.findAppointmentsByFromAfterAndUntilBefore(appointment.getFrom(), appointment.getUntil());
     }
 
 //     TODO:

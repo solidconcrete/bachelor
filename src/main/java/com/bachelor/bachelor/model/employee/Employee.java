@@ -1,5 +1,6 @@
 package com.bachelor.bachelor.model.employee;
 
+import com.bachelor.bachelor.model.CustomUser.CustomUser;
 import com.bachelor.bachelor.model.position.Position;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,10 +33,13 @@ public class Employee {
     @Field(name = "phone_number")
     private String phoneNumber;
     private String email;
-    private boolean isActive = true;
 
     @DBRef
-    @NotNull
-    @NotEmpty
+//    @NotNull
+//    @NotEmpty
     private List<Position> positions;
+
+    @DBRef
+    private CustomUser user;
+
 }

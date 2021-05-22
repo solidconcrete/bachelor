@@ -1,5 +1,6 @@
 package com.bachelor.bachelor.controller.cabinet;
 
+import com.bachelor.bachelor.TenantProvider;
 import com.bachelor.bachelor.bl.cabinet.service.CabinetService;
 import com.bachelor.bachelor.model.cabinet.Cabinet;
 import lombok.RequiredArgsConstructor;

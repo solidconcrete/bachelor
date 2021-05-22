@@ -1,6 +1,7 @@
 package com.bachelor.bachelor.controller.patient;
 
 
+import com.bachelor.bachelor.TenantProvider;
 import com.bachelor.bachelor.bl.patient.service.PatientService;
 import com.bachelor.bachelor.model.Patient.Patient;
 import lombok.RequiredArgsConstructor;
