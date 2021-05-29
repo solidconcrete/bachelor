@@ -25,7 +25,7 @@ public class AddressController {
         return addressService.findAllAddresses();
     }
 
-    @PostMapping
+    @PostMapping("/admin")
     public void upsertAddress(@RequestBody @Valid Address address) {
         addressService.upsertAddress(address);
     }

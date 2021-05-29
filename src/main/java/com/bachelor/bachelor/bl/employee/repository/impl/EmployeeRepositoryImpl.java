@@ -5,6 +5,7 @@ import com.bachelor.bachelor.bl.employee.repository.EmployeeRepositoryCustom;
 import com.bachelor.bachelor.model.employee.Employee;
 import com.bachelor.bachelor.model.employee.EmployeeSearch;
 import lombok.RequiredArgsConstructor;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -42,13 +43,17 @@ public class EmployeeRepositoryImpl implements EmployeeRepositoryCustom {
             ), "i"));
         }
 
+//        if (search.getPositionId() != null && !search.getPositionId().isEmpty()) {
+//            criteria.add(Criteria.where("position.id").is(search.getPositionId()));
+//        }
 //        query.addCriteria(Criteria.where("position.asdasd").is("SURGEON"));
 //        TODO: add criteria by postition
+//        query.addCriteria(Criteria.where("positions.id").is(new ObjectId("60a0581bbbd270d894680306")));
+//        query.fields().include("name").position("positions", 1);
 
-
-        if (!criteria.isEmpty()) {
-            query.addCriteria(new Criteria().andOperator(criteria.toArray(new Criteria[criteria.size()])));
-        }
+//        if (!criteria.isEmpty()) {
+//            query.addCriteria(new Criteria().andOperator(criteria.toArray(new Criteria[criteria.size()])));
+//        }
         return mongoTemplate.find(query, Employee.class);
     }
 

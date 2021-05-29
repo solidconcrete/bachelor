@@ -2,6 +2,7 @@ package com.bachelor.bachelor.model.Patient;
 
 import com.bachelor.bachelor.model.CustomUser.CustomUser;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Getter
+@Setter
 @Document (collection = "patient")
 public class Patient {
 
@@ -29,5 +31,6 @@ public class Patient {
     private String email;
 
     @DBRef
+    @NotNull
     private CustomUser user;
 }

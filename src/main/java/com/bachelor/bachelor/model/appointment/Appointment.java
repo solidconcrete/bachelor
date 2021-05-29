@@ -26,9 +26,12 @@ public class Appointment {
     @NotNull
     private Employee employee;
     @DBRef
+    @NotNull
     private Cabinet cabinet;
     @DBRef
+    @NotNull
     private Position position;
     @DBRef
+    @NotNull
     private Patient patient;
 }

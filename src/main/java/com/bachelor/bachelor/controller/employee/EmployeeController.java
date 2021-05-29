@@ -41,7 +41,7 @@ public class EmployeeController {
         return employeeService.searchEmployee(search);
     }
 
-    @PostMapping()
+    @PostMapping("/admin")
     public void insertOrUpdateEmployee(@RequestBody @Valid Employee employee) {
         employeeService.upsertEmployee(employee);
     }

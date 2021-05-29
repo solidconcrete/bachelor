@@ -35,11 +35,12 @@ public class Employee {
     private String email;
 
     @DBRef
-//    @NotNull
-//    @NotEmpty
+    @NotNull
+    @NotEmpty
     private List<Position> positions;
 
     @DBRef
+    @NotNull
     private CustomUser user;
 
 }

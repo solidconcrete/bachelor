@@ -48,6 +48,8 @@ public class JwtTokenFilter extends OncePerRequestFilter {
             return;
         }
 
+
+
         User.UserBuilder builder = User.withUsername(
                 jwtParser.getUsernameFromToken(token))
                 .authorities(jwtParser.getAuthoritiesFromToken(token))
@@ -59,9 +61,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                 userDetails, null,
                 userDetails.getAuthorities());
 
-
-        authentication
-                .setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+        authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         chain.doFilter(request, response);
