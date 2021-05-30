@@ -17,9 +17,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http = http.cors().and().csrf().disable();
         http.authorizeRequests()
-                .antMatchers("**/admin/**").hasAnyAuthority("ADMIN")
-//                .antMatchers("/delete/**").hasAuthority("DELETE")
-
+                .antMatchers("/admin/**").hasAuthority("ADMIN")
+                .antMatchers("/internal/**").hasAnyAuthority("ADMIN", "EMPLOYEE")
             .anyRequest().authenticated();
 
         http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);

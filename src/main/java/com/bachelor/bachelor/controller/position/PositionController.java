@@ -17,17 +17,16 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/positions")
 public class PositionController {
 
     private final PositionService positionService;
 
-    @GetMapping
+    @GetMapping("/positions")
     public List<Position> findAllPositions() {
         return positionService.findAllpositions();
     }
 
-    @PostMapping
+    @PostMapping("/admin/positions")
     public void upsertPosition(@RequestBody @Valid Position position) {
         log.info(position.toString());
         positionService.upsertPosition(position);

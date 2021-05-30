@@ -15,17 +15,16 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("cabinets")
 public class CabinetController {
 
     private final CabinetService cabinetService;
 
-    @GetMapping
+    @GetMapping("/cabinets")
     public List<Cabinet> findAllCabinets() {
         return cabinetService.findAllCabinets();
     }
 
-    @PostMapping
+    @PostMapping("/admin/cabinets")
     public void upsertCabinet(@RequestBody @Valid Cabinet cabinet) {
         cabinetService.upsertCabinet(cabinet);
     }

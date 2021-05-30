@@ -15,17 +15,16 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/addresses")
 public class AddressController {
 
     private final AddressService addressService;
 
-    @GetMapping
+    @GetMapping("/addresses")
     public List<Address> findAllAddresses() {
         return addressService.findAllAddresses();
     }
 
-    @PostMapping("/admin")
+    @PostMapping("/admin/addresses")
     public void upsertAddress(@RequestBody @Valid Address address) {
         addressService.upsertAddress(address);
     }

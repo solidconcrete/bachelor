@@ -18,17 +18,16 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/shifts")
 public class ShiftController {
 
     private final ShiftService shiftService;
 
-    @GetMapping
+    @GetMapping("/shifts")
     public List<Shift> findShifts() {
         return shiftService.findAllShifts();
     }
 
-    @PostMapping
+    @PostMapping("/internal/shifts")
     public void upsertShift(@RequestBody @Valid Shift shift) {
         shiftService.upsertShift(shift);
     }

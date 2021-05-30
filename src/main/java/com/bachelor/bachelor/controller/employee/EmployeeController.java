@@ -18,7 +18,6 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/employees")
 @RequiredArgsConstructor
 @Slf4j
 @CrossOrigin(origins = "http://localhost:4200")
@@ -26,22 +25,22 @@ public class EmployeeController {
 
     private final EmployeeService employeeService;
 
-    @GetMapping()
+    @GetMapping("/employees")
     public List<Employee> findAll() {
         return employeeService.findAllEmployees();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/employees/{id}")
     public Employee findEmployeeById(@PathVariable ("id") String id) {
         return employeeService.findEmployeeById(id);
     }
 
-    @PostMapping("/search")
+    @PostMapping("/employees/search")
     public List<Employee> searchEmployees(@RequestBody EmployeeSearch search) {
         return employeeService.searchEmployee(search);
     }
 
-    @PostMapping("/admin")
+    @PostMapping("/admin/employees")
     public void insertOrUpdateEmployee(@RequestBody @Valid Employee employee) {
         employeeService.upsertEmployee(employee);
     }

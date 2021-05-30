@@ -16,27 +16,26 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/appointments")
 public class AppointmentController {
 
     private final AppointmentService appointmentService;
 
-    @GetMapping("/admin")
+    @GetMapping("/admin/appointments")
     public List<Appointment> findAllAppointments() {
         return appointmentService.findAllAppointments();
     }
 
-    @GetMapping()
+    @GetMapping("/appointments")
     public List<Appointment> findAllUserAppointments(Authentication authentication) {
         return appointmentService.findUserAppointments(authentication);
     }
 
-    @PostMapping
+    @PostMapping("/appointments")
     public void upsertAppointment(@RequestBody Appointment appointment, Authentication authentication) {
         appointmentService.upsertAppointment(appointment, authentication);
     }
 
-    @PostMapping("/search")
+    @PostMapping("/appointments/search")
     public List<Appointment> findAppointments(@RequestBody Appointment appointment) {
         return appointmentService.findAppointmentsBetween(appointment);
     }

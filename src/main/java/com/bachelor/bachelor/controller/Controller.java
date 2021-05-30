@@ -19,7 +19,7 @@ public class Controller {
 
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/hello")
+    @GetMapping("/admin")
     public String hello() {
         return "Asdasd";
 
