@@ -19,8 +19,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .antMatchers("/internal/**").hasAnyAuthority("ADMIN", "EMPLOYEE")
+                .antMatchers("/v2/**").anonymous()
+                .antMatchers("/swagger-ui.html/**").anonymous()
             .anyRequest().authenticated();
-
+;
         http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
     }
 }

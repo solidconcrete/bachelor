@@ -29,6 +29,13 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                                     HttpServletResponse response,
                                     FilterChain chain) throws ServletException, IOException {
 
+        if (request.getRequestURI().contains("v3") || request.getRequestURI().contains("swagger") || request.getRequestURI().contains("v2")
+                || request.getRequestURI().contains("csrf")) {
+            log.info(request.getRequestURI());
+            chain.doFilter(request, response);
+            return;
+        }
+
         final String header = request.getHeader("Authorization");
 
         // validate request header
